@@ -20,57 +20,85 @@
 
 ## 빠른 길찾기
 
-### 1. PR을 어떻게 써야 할지 알고 싶다
+### 1. 내가 작성자고, 내 PR을 준비하고 싶다
+
+- [`pr_author_prepare_guide.md`](./pr_author_prepare_guide.md)
+- [`PR_GUIDE.md`](./PR_GUIDE.md)
+- [`pr_description_guide.md`](./pr_description_guide.md)
+- [`refine_before_pr.md`](./refine_before_pr.md)
+
+이 흐름은 **작성자용**이다. PR을 열기 전 diff, 설명, 검증 근거를 정리할 때 먼저 본다.
+
+### 2. PR을 어떻게 써야 할지 알고 싶다
 
 - [`PR_GUIDE.md`](./PR_GUIDE.md)
 - [`pr_description_guide.md`](./pr_description_guide.md)
 
 `PR_GUIDE.md`는 PR의 전체 구조를 잡는 문서고, `pr_description_guide.md`는 PR 설명을 어떤 기준으로 채워야 하는지 더 자세히 다룬다.
 
-### 2. PR 올리기 전에 한 번 더 정리하고 싶다
+### 3. PR 올리기 전에 한 번 더 정리하고 싶다
 
 - [`refine_before_pr.md`](./refine_before_pr.md)
 
 이 문서는 diff를 줄이고, 문서/설명/검증 근거를 정리해서 리뷰 비용을 낮추는 데 초점이 있다.
 
-### 3. 리뷰어 입장에서 이 PR을 어떻게 받을지 판단하고 싶다
+### 4. 리뷰어 입장에서 이 PR을 어떻게 받을지 판단하고 싶다
 
 - [`pr_review_intake_gate.md`](./pr_review_intake_gate.md)
 
 이 문서는 **문서만으로 판단 가능한 PR인지**, **코드 리뷰가 필요한지**, **문서 패키지가 부족한지**를 먼저 가르는 intake gate다.
 
-### 4. 지금 바로 수정하지 말고 먼저 질문해야 하는 상황이다
+### 5. 이미 열린 PR에서 피드백 / 자동 리뷰 코멘트를 처리하고 싶다
+
+- [`ai_pr_review_apply.md`](./ai_pr_review_apply.md)
+
+이 문서는 pre-PR 작성이 아니라 **post-PR feedback triage** 흐름이다.
+
+### 6. 지금 바로 수정하지 말고 먼저 질문해야 하는 상황이다
 
 - [`ask.md`](./ask.md)
 
 요구사항, 범위, 목적이 불명확할 때 무엇을 확인해야 하는지 정리한 원칙 문서다.
 
-### 5. 시스템 설계 요청 자체를 잘 만들고 싶다
+### 7. 시스템 설계 요청 자체를 잘 만들고 싶다
 
 - [`design_request_guide.md`](./design_request_guide.md)
 
 설계 요청을 구조적으로 작성해서 더 좋은 설계 응답을 얻기 위한 템플릿이다.
 
-### 6. CodeRabbit 리뷰 반영 워크플로우가 필요하다
+### 8. instruction 문서가 어떻게 진화해야 하는지 알고 싶다
 
-- [`ai_pr_review_apply.md`](./ai_pr_review_apply.md)
+- [`instruction_evolution_policy.md`](./instruction_evolution_policy.md)
+- [`instruction_update_proposal_template.md`](./instruction_update_proposal_template.md)
 
-자동 리뷰 코멘트를 triage하고, 어떤 항목을 적용/보류/스킵할지 다루는 특화 워크플로우다.
+이 문서들은 conversation에서 나온 통찰이 어떻게 candidate instruction change가 되고, review를 거쳐 canonical instruction update가 되는지 정의하는 정책과 템플릿이다.
+
+### 9. 반복 작업을 기록해서 subagent 설계 근거로 쓰고 싶다
+
+- [`subagent_design_observation_log.md`](./subagent_design_observation_log.md)
+
+이 문서는 실제 작업에서 반복되는 판단, 병목, 위임 가능 작업을 기록해 두고 나중에 subagent 역할이나 instruction 개선으로 승격할지를 판단하기 위한 관찰 로그다.
 
 ---
 
 ## 분류 체계
 
-현재 문서는 아래 5개 범주로 보는 것이 가장 자연스럽다.
+현재 문서는 아래 8개 범주로 보는 것이 가장 자연스럽다.
 
-### A. PR 설명 기준과 템플릿
+### A. 작성자용 PR 준비 entrypoint
+
+- [`pr_author_prepare_guide.md`](./pr_author_prepare_guide.md)
+
+내 PR을 준비하는 전체 흐름을 잡는 entrypoint다. author flow와 reviewer flow를 여기서 먼저 가른다.
+
+### B. PR 설명 기준과 템플릿
 
 - [`PR_GUIDE.md`](./PR_GUIDE.md)
 - [`pr_description_guide.md`](./pr_description_guide.md)
 
-PR을 어떤 구조로 쓰고, 리뷰어가 코드를 보기 전에 무엇을 이해해야 하는지 다룬다.
+작성자 입장에서 PR을 어떤 구조로 쓰고, 리뷰어가 코드를 보기 전에 무엇을 이해해야 하는지 다룬다.
 
-### B. PR Intake / 질문 우선 / 리뷰 진입 판단
+### C. PR Intake / 질문 우선 / 리뷰 진입 판단
 
 - [`pr_review_intake_gate.md`](./pr_review_intake_gate.md)
 - [`ask.md`](./ask.md)
@@ -78,27 +106,48 @@ PR을 어떤 구조로 쓰고, 리뷰어가 코드를 보기 전에 무엇을 �
 둘 다 “바로 진행하지 않고 먼저 가른다”는 공통점이 있다.
 차이는 `ask.md`가 범용 원칙이고, `pr_review_intake_gate.md`는 PR 리뷰어용 intake gate라는 점이다.
 
-### C. PR 전 정리와 문서화 hygiene
+### D. PR 전 정리와 문서화 hygiene
 
 - [`refine_before_pr.md`](./refine_before_pr.md)
 
 PR을 열기 직전, 불필요한 변경을 제거하고 설명/검증 근거를 정리하는 단계에 해당한다.
 
-### D. 설계 요청 템플릿
+### E. 설계 요청 템플릿
 
 - [`design_request_guide.md`](./design_request_guide.md)
 
 PR 문서가 아니라, 설계 요청 자체를 더 잘 만들기 위한 문서다.
 
-### E. 특화된 리뷰 자동화 워크플로우
+### F. 특화된 리뷰 / post-PR feedback 워크플로우
 
 - [`ai_pr_review_apply.md`](./ai_pr_review_apply.md)
 
-일반 PR 가이드와 다르게, CodeRabbit 리뷰 반영이라는 특정 상황에 맞춘 운영 문서다.
+일반 PR 가이드와 다르게, 이미 열린 PR에서 CodeRabbit 리뷰를 triage하는 특정 상황에 맞춘 운영 문서다.
+
+### G. instruction 진화 정책
+
+- [`instruction_evolution_policy.md`](./instruction_evolution_policy.md)
+- [`instruction_update_proposal_template.md`](./instruction_update_proposal_template.md)
+
+instruction 문서가 대화를 통해 어떻게 개선되고, 무엇이 memory로 남고, 무엇이 candidate change가 되며, 어떤 변경이 review를 거쳐 승인되어야 하는지 정의하는 상위 정책과 proposal 템플릿이다.
+
+### H. subagent 설계 관찰 로그
+
+- [`subagent_design_observation_log.md`](./subagent_design_observation_log.md)
+
+며칠간 실제 작업을 하면서 어떤 작업이 반복되고, 어떤 작업이 독립 subagent로 분리될 수 있는지 관찰하는 evidence log다. 이 문서는 canonical instruction이 아니라, 이후 instruction proposal이나 subagent role 설계의 근거로 쓴다.
 
 ---
 
 ## 자주 헷갈리는 경계
+
+### 작성자용 PR 준비 vs 리뷰어용 PR 검토
+
+- 작성자용 준비: `pr_author_prepare_guide.md`, `PR_GUIDE.md`, `pr_description_guide.md`, `refine_before_pr.md`
+- 리뷰어용 검토: `pr_review_intake_gate.md`
+- 이미 열린 PR의 feedback 처리: `ai_pr_review_apply.md`
+
+가장 중요한 원칙은 **내 PR을 준비하는 흐름**과 **다른 사람 PR을 리뷰하는 흐름**을 한 문서/한 요청으로 섞지 않는 것이다.
 
 ### `PR_GUIDE.md` vs `pr_description_guide.md`
 
@@ -132,11 +181,12 @@ PR 문서가 아니라, 설계 요청 자체를 더 잘 만들기 위한 문서�
 
 ### 작성자 입장
 
-1. [`ask.md`](./ask.md) — 애매하면 먼저 질문
-2. [`design_request_guide.md`](./design_request_guide.md) — 설계 요청이 필요한 경우
-3. [`PR_GUIDE.md`](./PR_GUIDE.md)
-4. [`pr_description_guide.md`](./pr_description_guide.md)
-5. [`refine_before_pr.md`](./refine_before_pr.md)
+1. [`pr_author_prepare_guide.md`](./pr_author_prepare_guide.md)
+2. [`ask.md`](./ask.md) — 애매하면 먼저 질문
+3. [`design_request_guide.md`](./design_request_guide.md) — 설계 요청이 필요한 경우
+4. [`refine_before_pr.md`](./refine_before_pr.md)
+5. [`PR_GUIDE.md`](./PR_GUIDE.md)
+6. [`pr_description_guide.md`](./pr_description_guide.md)
 
 ### 리뷰어 입장
 
@@ -148,6 +198,13 @@ PR 문서가 아니라, 설계 요청 자체를 더 잘 만들기 위한 문서�
 
 1. [`ask.md`](./ask.md)
 2. [`design_request_guide.md`](./design_request_guide.md)
+
+### instruction 운영자 / 정리자 입장
+
+1. [`instruction_evolution_policy.md`](./instruction_evolution_policy.md)
+2. [`instruction_update_proposal_template.md`](./instruction_update_proposal_template.md)
+3. [`subagent_design_observation_log.md`](./subagent_design_observation_log.md) — 반복 작업과 subagent 후보를 관찰할 때
+4. 필요 시 [`ask.md`](./ask.md)
 
 ---
 

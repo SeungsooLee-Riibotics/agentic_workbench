@@ -19,6 +19,8 @@
 - 역할: PR 작성, PR 설명, PR 전 정리, 질문 우선 원칙, 설계 요청, 리뷰 intake 같은 작업용 지침을 모아둔 영역
 - 진입점: [`instructions/README.md`](./instructions/README.md)
 
+instruction 문서가 대화를 통해 어떻게 진화해야 하는지에 대한 상위 정책과 proposal 템플릿은 [`instructions/instruction_evolution_policy.md`](./instructions/instruction_evolution_policy.md), [`instructions/instruction_update_proposal_template.md`](./instructions/instruction_update_proposal_template.md) 에 둔다.
+
 이 영역은 코드 구현 그 자체보다, **어떻게 요청하고, 정리하고, 리뷰하고, 판단할지**를 다룬다.
 
 ### 2. AI Request Orchestrator 설계 / 서비스 자산
@@ -43,11 +45,59 @@
    - 리뷰어 입장에서 문서만으로 판단 가능한지 가르고 싶으면 [`instructions/pr_review_intake_gate.md`](./instructions/pr_review_intake_gate.md)
    - 요구사항이 애매해서 먼저 질문해야 하면 [`instructions/ask.md`](./instructions/ask.md)
    - 설계 요청 템플릿이 필요하면 [`instructions/design_request_guide.md`](./instructions/design_request_guide.md)
+   - instruction 문서 자체를 어떻게 발전시킬지 정하고 싶으면 [`instructions/instruction_evolution_policy.md`](./instructions/instruction_evolution_policy.md)
+   - instruction 변경안을 바로 써보고 싶으면 [`instructions/instruction_update_proposal_template.md`](./instructions/instruction_update_proposal_template.md)
 
 ### Orchestrator 설계나 서비스가 목적이면
 
 1. 설계 개요: [`ai-request-orchestrator.md`](./ai-request-orchestrator.md)
 2. 실행/운영: [`services/ai_request_orchestrator/README.md`](./services/ai_request_orchestrator/README.md)
+
+---
+
+## 다른 workspace에서 이 repo를 읽게 하는 방법
+
+권장 방식은 각 workspace의 tracked `AGENTS.md`에 개인 로컬 경로를 직접 쓰지 않고,
+gitignore 처리된 local overlay 파일을 optional로 읽게 만드는 것이다.
+
+이 방식이 적절한 이유는 다음과 같다.
+
+- 팀 repo에는 개인 홈 디렉터리나 checkout 경로가 남지 않는다.
+- local overlay 파일이 없으면 다른 개발자는 영향을 받지 않는다.
+- 개발자마다 자기 `agentic_workbench` 경로를 다르게 둘 수 있다.
+- 팀 규칙은 tracked `AGENTS.md`에 남고, 개인 작업 방식은 local overlay로 분리된다.
+
+workspace의 `AGENTS.md`에는 아래처럼 적는다.
+
+```md
+## Personal Agentic Workbench Overlay
+
+If `.agents.local.md` exists at the workspace root, read it after this file.
+Treat it as an additive personal overlay. Repository instructions take precedence
+when they conflict with the local overlay.
+```
+
+workspace의 `.gitignore`에는 local overlay 파일을 추가한다.
+
+```gitignore
+.agents.local.md
+```
+
+그리고 각 개발자의 local overlay 파일에는 자기 환경에 맞는 경로를 적는다.
+
+```md
+# Local Agentic Workbench Overlay
+
+Also read:
+
+- /home/lss0815/git/agentic_workbench/README.md
+- /home/lss0815/git/agentic_workbench/instructions/README.md
+```
+
+주의할 점은 local overlay가 팀 문서의 대체물이 아니라는 것이다. 프로젝트 전체가 따라야 하는
+아키텍처 결정, API 계약, runbook은 해당 프로젝트의 tracked 문서에 남긴다. 이 repo에서
+행동을 바꾸는 instruction은 [`instructions/instruction_evolution_policy.md`](./instructions/instruction_evolution_policy.md)
+흐름에 따라 candidate change로 기록한 뒤 승인해서 반영한다.
 
 ---
 
@@ -67,3 +117,4 @@
 - 작업 가이드를 찾으려면: [`instructions/README.md`](./instructions/README.md)
 - orchestrator 설계를 읽으려면: [`ai-request-orchestrator.md`](./ai-request-orchestrator.md)
 - orchestrator 실행 자산을 보려면: [`services/ai_request_orchestrator/`](./services/ai_request_orchestrator/)
+- 반복 작업과 subagent 설계 근거를 기록하려면: [`instructions/subagent_design_observation_log.md`](./instructions/subagent_design_observation_log.md)

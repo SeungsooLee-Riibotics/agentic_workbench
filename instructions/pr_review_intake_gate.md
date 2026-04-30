@@ -3,6 +3,8 @@
 이 문서는 PR 리뷰어 측의 1차 intake gate 기준이다.
 목표는 이 PR이 **설계 문서와 PR 요약만으로 판단 가능한지**, 아니면 **코드 리뷰가 추가로 필요한지**, 혹은 **문서 패키지 자체가 부족한지**를 먼저 가르는 것이다.
 
+이 문서는 작성자가 자기 PR 설명을 준비하는 용도의 문서가 아니다. 작성자 측 준비는 `pr_author_prepare_guide.md`, `PR_GUIDE.md`, `pr_description_guide.md`, `refine_before_pr.md` 흐름으로 본다.
+
 판정값은 아래 3개만 사용한다.
 
 - `DOC_ONLY_REVIEW_POSSIBLE`

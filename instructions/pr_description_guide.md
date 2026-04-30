@@ -1,7 +1,9 @@
-# PR Description Guide
+# PR Description Guide (작성자용)
 
-이 문서는 `.github/PULL_REQUEST_TEMPLATE.md`를 채울 때 따라야 하는 작성 기준이다.
+이 문서는 `.github/PULL_REQUEST_TEMPLATE.md`를 채울 때 따라야 하는 **작성자용 작성 기준**이다.
 목표는 리뷰어가 코드를 보기 전에 변경 의도와 영향 범위를 예상할 수 있게 만들고, 가능하면 PR 설명만으로도 핵심 변경을 이해하게 하는 것이다.
+
+리뷰어 입장에서 문서만으로 판단 가능한지 가르는 문서는 별도로 `pr_review_intake_gate.md`를 사용한다.
 
 ## 핵심 원칙
 

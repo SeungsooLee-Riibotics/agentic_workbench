@@ -1,4 +1,7 @@
-# PR 작성 가이드 (GitHub Pull Request)
+# PR 작성 가이드 (GitHub Pull Request, 작성자용)
+
+이 문서는 **작성자 입장에서 내 PR 본문을 구성할 때** 사용하는 가이드다.
+리뷰어가 다른 사람 PR을 intake 하거나 판정하는 용도가 아니다. 그런 경우에는 `pr_review_intake_gate.md`를 사용한다.
 
 ## 목표
 이 PR은 **무엇을 왜 바꾸는지**를 짧고 명확하게 설명해야 한다.  

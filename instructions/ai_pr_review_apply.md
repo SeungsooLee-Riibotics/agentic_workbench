@@ -2,6 +2,8 @@
 
 Use this workflow when the user asks to handle CodeRabbit feedback in a pull request.
 
+This is a **post-PR feedback workflow**, not a pre-PR authoring workflow. If the user is still preparing their own PR before opening it, use the author-side documents first (`pr_author_prepare_guide.md`, `PR_GUIDE.md`, `pr_description_guide.md`, `refine_before_pr.md`).
+
 1. Identify target repository and PR
 - Treat PR target as either root repo or one submodule repo.
 - Accept user input in one of these forms:
